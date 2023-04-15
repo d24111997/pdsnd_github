@@ -60,7 +60,6 @@ def load_data(city, month, day):
         
     return df
 
-
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
 
@@ -70,19 +69,15 @@ def time_stats(df):
     common_month = df['Month'].mode()[0]
     print('The most common month is:', common_month)
 
-
     common_day = df['Day of Week'].mode()[0]
     print('The most common day of week is:', common_day)
-
 
     df['Hour'] = df['Start Time'].dt.hour
     common_hour = df['Hour'].mode()[0]
     print('The most common start hour is:', common_hour)
 
-
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-
 
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
@@ -93,10 +88,8 @@ def station_stats(df):
     common_start_station = df['Start Station'].mode()[0]
     print('The most commonly used start station is:', common_start_station)
 
-
     common_end_station = df['End Station'].mode()[0]
     print('The most commonly used end station is:', common_end_station)
-
 
     df['Start-End Stations'] = df['Start Station'] + ' to ' + df['End Station']
     common_start_end_station = df['Start-End Stations'].mode()[0]
@@ -104,7 +97,6 @@ def station_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-
 
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
@@ -115,14 +107,11 @@ def trip_duration_stats(df):
     total_travel_time = df['Trip Duration'].sum()
     print('The total travel time is:', total_travel_time, 'seconds')
 
-
     mean_travel_time = df['Trip Duration'].mean()
     print('The mean travel time is:', mean_travel_time, 'seconds')
 
-
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-
 
 def user_stats(df):
     """Displays statistics on bikeshare users."""
@@ -134,14 +123,12 @@ def user_stats(df):
     print('Counts of user types:')
     print(user_types)
 
-
     if 'Gender' in df.columns:
         gender_counts = df['Gender'].value_counts()
         print('\nCounts of gender:')
         print(gender_counts)
     else:
         print('\nGender data is not available for this city.')
-
 
     if 'Birth Year' in df.columns:
         earliest_birth_year = int(df['Birth Year'].min())
@@ -153,7 +140,6 @@ def user_stats(df):
     else:
         print('\nBirth year data is not available for this city.')
 
-
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
     
@@ -164,7 +150,6 @@ def display_data(df):
         print(df.iloc[start_loc:start_loc+5])
         start_loc += 5
         view_data = input('Do you want to see the next 5 rows of data? Enter "yes" to see the data. Other answer may be considered as no.').lower()
-
 
 def main():
     while True:
@@ -180,7 +165,6 @@ def main():
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
-
 
 if __name__ == "__main__":
 	main()
