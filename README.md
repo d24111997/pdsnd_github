@@ -19,4 +19,4 @@ Big files which contains data will not be upload to git.
 
 ### Credits
 It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+Big credits to Udacity team.
